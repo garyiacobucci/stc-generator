@@ -1,10 +1,13 @@
 import React from "react";
+import Intro from "./components/Intro.jsx";
+import Act1 from "./components/Act1.jsx";
 
 const App = () =>{
     return (
-        <h1>
-            Hello world.
-        </h1>
+      <div>
+        <Intro />
+        <Act1 />
+      </div>
     )
 }
 
