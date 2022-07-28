@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { beats } from '../staticData';
+import { beats, examples } from '../staticData';
 import { UserContext } from '../UserContext';
 
-const Act1 = (props) => {
+const Beats = (props) => {
 
   //Connect to UserContext via Context API:
   const { 
@@ -22,8 +22,9 @@ const Act1 = (props) => {
       <h1>ACT I</h1>
         {beats.map((beat, i) => (
           <div key={i}>
-            <p>{beat.num}. {beat.name} (Page {beat.page})</p>
+            <p>{i+1}. {beat.name} (~Page {beat.page})</p>
             <p>{beat.desc}</p>
+            <p>Example: {examples[0][i]}</p>
             <form>
               <input
                 type="text"
@@ -39,4 +40,4 @@ const Act1 = (props) => {
   )
 }
 
-export default Act1;
+export default Beats;

@@ -5,7 +5,7 @@ const UserContext = React.createContext();
 function UserContextProvider(props) {
 
   // State data for each beat in an answer array.
-  const [ansArr, setAnsArr] = useState([[],[]])
+  const [ansArr, setAnsArr] = useState([[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],[''],['']])
 
   const updateAnsArr = (value, i) => {
     const updatedAnsArr = [...ansArr];
@@ -18,13 +18,11 @@ function UserContextProvider(props) {
     const response = JSON.parse(localStorage.getItem('ansArr'));
     if (response) {
       setAnsArr(response)
-      console.log(ansArr)
     }   
   }, [])
 
   useEffect(() => {
     localStorage.setItem('ansArr', JSON.stringify(ansArr));
-    console.log('Setting ansArr', ansArr)
   }, [ansArr]);
 
 
