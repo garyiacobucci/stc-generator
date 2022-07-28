@@ -4,17 +4,18 @@ import { UserContext } from '../UserContext';
 
 const Act1 = (props) => {
 
-  //Define function for updating controlled form input:
-  function handleChange(event, hookName) {
-    const {value} = event.target;
-    hookName(value);
-  }
-
-  
-
   //Connect to UserContext via Context API:
   const { 
-    ansArr } = useContext(UserContext); 
+    ansArr,
+    updateAnsArr } = useContext(UserContext); 
+
+  //Define function for updating controlled form input:
+  function handleChange(e, hookName, i = null) {
+    const {value} = e.target;
+    if (hookName === updateAnsArr) {
+      updateAnsArr(value, i)
+    } else hookName(value);
+  }
 
   return (
     <div key="1">
@@ -27,9 +28,9 @@ const Act1 = (props) => {
               <input
                 type="text"
                 placeholder="Type your answer here"
-                onChange={((e) => handleChange(e, ansArr[i][1]))}
+                onChange={(e) => handleChange(e, updateAnsArr, i)}
                 name="answerText"
-                value={ansArr[i][0]}
+                value={ansArr[i]}
               />
             </form>
           </div>
